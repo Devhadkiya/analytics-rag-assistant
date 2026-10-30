@@ -1,0 +1,18 @@
+# Each case names the source file the answer must come from. The evaluation
+# measures whether retrieval surfaced it at all - which is the failure that
+# matters, because the model cannot answer from a passage it never saw.
+- question: How is an active user defined?
+  expect_source: metrics.md
+- question: What counts as churn for a monthly subscription?
+  expect_source: metrics.md
+- question: Which timezone are daily reports built in?
+  expect_source: conventions.md
+- question: When is revenue recognised for an annual plan?
+  expect_source: revenue.md
+- question: What is the difference between gross and net MRR?
+  expect_source: revenue.md
+- question: Who owns the definition of a qualified lead?
+  expect_source: ownership.md
+# Deliberately out of scope - the assistant should decline, not improvise.
+- question: What is our Kubernetes cluster autoscaling policy?
+  expect_source: NONE
