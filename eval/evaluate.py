@@ -17,6 +17,13 @@ from retrieve import retrieve  # noqa: E402
 
 
 def main() -> None:
+    # Fail with an explanation rather than a traceback when the project has
+    # not been set up yet - this is the first thing anyone cloning it hits.
+    try:
+        retrieve("smoke test")
+    except Exception as exc:
+        raise SystemExit(f"Cannot run the evaluation: {exc}")
+
     cases = yaml.safe_load(
         (pathlib.Path(__file__).parent / "questions.yaml").read_text())
 
