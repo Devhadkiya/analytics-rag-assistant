@@ -98,13 +98,18 @@ correct decline: 1/1
 ## Running it
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env          # add your OPENAI_API_KEY
+cp .env.example .env
+```
 
-python src/ingest.py                      # index the corpus
+Open `.env` and set `OPENAI_API_KEY`. Then:
+
+```bash
+python src/ingest.py
 python src/answer.py "How is churn defined?"
-python eval/evaluate.py                   # measure retrieval
+python eval/evaluate.py
 ```
 
 Cost to index the sample corpus and run the eval is a fraction of a cent on
